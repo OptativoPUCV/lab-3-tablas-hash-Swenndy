@@ -127,19 +127,6 @@ void eraseMap(HashMap *map, char *key)
             free(map->buckets[pos]);
             map->buckets[pos] = NULL;
             map->size--;
-
-            long siguiente = (pos + 1) % map->capacity;
-            while (map->buckets[siguiente] != NULL)
-            {
-                Pair *temp = map->buckets[siguiente];
-                map->buckets[siguiente] = NULL;
-                map->size--;
-
-                insertMap(map, temp->key, temp->value);
-                free(temp);
-
-                siguiente = (siguiente + 1) % map->capacity;
-            }
             return;
         }
         pos++;
