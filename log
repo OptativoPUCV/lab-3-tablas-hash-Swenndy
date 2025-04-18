@@ -92,3 +92,9 @@ Fri Apr 18 18:25:26 -04 2025:
  tests:  9|2
 total_score: 50/70
 555b57e
+Fri Apr 18 18:26:47 -04 2025: 
+ hashmap.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+ tests:  10|2
+total_score: 50/70
+dd4762c
