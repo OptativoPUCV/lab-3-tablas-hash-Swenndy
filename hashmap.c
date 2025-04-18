@@ -139,6 +139,7 @@ void eraseMap(HashMap *map, char *key)
                 free(temp);
 
                 siguiente = (siguiente + 1) % map->capacity;
+                return;
             }
         }
         pos++;
