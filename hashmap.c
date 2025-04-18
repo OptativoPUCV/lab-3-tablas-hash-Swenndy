@@ -124,7 +124,7 @@ void eraseMap(HashMap *map, char *key)
     {
         if (is_equal(map->buckets[pos]->key, key))
         {
-            // Liberar el par
+
             free(map->buckets[pos]->key);
             free(map->buckets[pos]->value);
             free(map->buckets[pos]);
@@ -153,6 +153,15 @@ void eraseMap(HashMap *map, char *key)
 
 Pair *searchMap(HashMap *map, char *key)
 {
+    long pos = hash(key, map->capacity);
+    while (map->buckets[pos] != NULL)
+    {
+        if (is_equal(map->buckets[pos]->key, key))
+        {
+            return map->buckets[pos];
+        }
+        pos = (pos + 1) % map->capacity;
+    }
 
     return NULL;
 }
