@@ -99,15 +99,17 @@ void enlarge(HashMap *map)
 HashMap *createMap(long capacity)
 {
     HashMap *map = (HashMap *)malloc(sizeof(HashMap));
-    map->capacity = capacity;
-    map->size = 0;
-    map->current = 0;
+    if (map == NULL)
+        return NULL;
     map->buckets = (Pair **)calloc(capacity, sizeof(Pair *));
     if (map->buckets == NULL)
     {
         free(map);
         return NULL;
     }
+    map->capacity = capacity;
+    map->size = 0;
+    map->current = 0;
     return map;
 }
 

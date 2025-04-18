@@ -26,3 +26,9 @@ Fri Apr 18 16:16:33 -04 2025:
  tests:  5|4
 total_score: 30/70
 09a4dc3
+Fri Apr 18 16:18:50 -04 2025: 
+ hashmap.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+ tests:  5|4
+total_score: 30/70
+4a56fdf
