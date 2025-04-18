@@ -79,7 +79,7 @@ void enlarge(HashMap *map)
     long new_capacity = old_capacity * 2;
     Pair **new_buckets = calloc(new_capacity, sizeof(Pair *));
     if (new_buckets == NULL)
-        return EXIT_FAILURE;
+        return;
 
     map->capacity = new_capacity;
     map->buckets = new_buckets;
