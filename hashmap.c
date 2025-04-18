@@ -46,11 +46,11 @@ int is_equal(void *key1, void *key2)
 
 void insertMap(HashMap *map, char *key, void *value)
 {
-    int pos = hash(key, map->capacity);
-    Pair *new = createPair(key, value);
+    long pos = hash(key, map->capacity);
+    Pair *nuevo = createPair(key, value);
     if (map->buckets[pos] == NULL)
     {
-        map->buckets[pos] = new;
+        map->buckets[pos] = nuevo;
         map->size++;
     }
     else
@@ -60,20 +60,40 @@ void insertMap(HashMap *map, char *key, void *value)
             if (is_equal(map->buckets[pos]->key, key))
             {
                 map->buckets[pos]->value = value;
-                free(new);
+                free(nuevo);
                 return;
             }
             pos++;
             pos = pos % map->capacity;
         }
-        map->buckets[pos] = new;
+        map->buckets[pos] = nuevo;
         map->size++;
     }
 }
 
 void enlarge(HashMap *map)
 {
-    enlarge_called = 1; // no borrar (testing purposes)
+    long old_capacity = map->capacity;
+    Pair **old_buckets = map->buckets;
+
+    long new_capacity = old_capacity * 2;
+    Pair **new_buckets = calloc(new_capacity, sizeof(Pair *));
+    if (new_buckets == NULL)
+        return EXIT_FAILURE;
+
+    map->capacity = new_capacity;
+    map->buckets = new_buckets;
+    map->size = 0;
+    map->current = 0;
+
+    for (long i = 0; i < old_capacity; i++)
+    {
+        if (old_buckets[i] != NULL)
+        {
+            insertMap(map, old_buckets[i]->key, old_buckets[i]->value);
+        }
+    }
+    free(old_buckets);
 }
 
 HashMap *createMap(long capacity)

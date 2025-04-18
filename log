@@ -4,3 +4,13 @@ Fri Apr 18 15:52:59 -04 2025:
  tests:  4|5
 total_score: 20/70
 eeef3b7
+Fri Apr 18 16:13:33 -04 2025: 
+ hashmap.c | 32 ++++++++++++++++++++++++++------
+ 1 file changed, 26 insertions(+), 6 deletions(-)
+Compilation failed
+In file included from test.c:4:
+./hashmap.c:82:9: error: void function 'enlarge' should not return a value [-Wreturn-type]
+        return EXIT_FAILURE;
+        ^      ~~~~~~~~~~~~
+1 error generated.
+8171855
