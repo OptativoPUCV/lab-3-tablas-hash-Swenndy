@@ -114,3 +114,9 @@ In file included from test.c:4:
         ^      ~~~~
 1 error generated.
 b8104d7
+Fri Apr 18 20:42:33 -04 2025: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  13|1
+total_score: 60/70
+fa4b7a2

@@ -125,7 +125,7 @@ void eraseMap(HashMap *map, char *key)
         map->size--;
     }
     else
-        return NULL;
+        return;
 }
 
 Pair *searchMap(HashMap *map, char *key)
