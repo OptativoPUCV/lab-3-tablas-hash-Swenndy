@@ -104,3 +104,13 @@ Fri Apr 18 20:40:05 -04 2025:
  tests:  10|2
 total_score: 50/70
 aec59b6
+Fri Apr 18 20:42:12 -04 2025: 
+ hashmap.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+Compilation failed
+In file included from test.c:4:
+./hashmap.c:128:9: error: void function 'eraseMap' should not return a value [-Wreturn-type]
+        return NULL;
+        ^      ~~~~
+1 error generated.
+b8104d7

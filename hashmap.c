@@ -120,12 +120,12 @@ void eraseMap(HashMap *map, char *key)
     Pair *pair = searchMap(map, key);
     if (pair != NULL)
     {
-        free(pair->key);
-        free(pair->value);
-        free(pair);
-        map->buckets[map->current] = NULL;
+        pair->key = NULL;
+        map->current = -1;
         map->size--;
     }
+    else
+        return NULL;
 }
 
 Pair *searchMap(HashMap *map, char *key)
