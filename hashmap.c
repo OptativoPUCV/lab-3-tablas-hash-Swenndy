@@ -117,37 +117,14 @@ void eraseMap(HashMap *map, char *key)
 {
     if (map == NULL || key == NULL)
         return;
-
-    long pos = hash(key, map->capacity);
-
-    while (map->buckets[pos] != NULL)
+    Pair *pair = searchMap(map, key);
+    if (pair != NULL)
     {
-        if (is_equal(map->buckets[pos]->key, key))
-        {
-
-            free(map->buckets[pos]->key);
-            free(map->buckets[pos]->value);
-            free(map->buckets[pos]);
-            map->buckets[pos] = NULL;
-            map->size--;
-
-            long next = (pos + 1) % map->capacity;
-            while (map->buckets[next] != NULL)
-            {
-                Pair *temp = map->buckets[next];
-                map->buckets[next] = NULL;
-                map->size--;
-
-                insertMap(map, temp->key, temp->value);
-                free(temp);
-
-                next = (next + 1) % map->capacity;
-            }
-
-            return;
-        }
-
-        pos = (pos + 1) % map->capacity;
+        free(pair->key);
+        free(pair->value);
+        free(pair);
+        map->buckets[map->current] = NULL;
+        map->size--;
     }
 }
 

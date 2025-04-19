@@ -98,3 +98,9 @@ Fri Apr 18 18:26:47 -04 2025:
  tests:  10|2
 total_score: 50/70
 dd4762c
+Fri Apr 18 20:40:05 -04 2025: 
+ hashmap.c | 35 ++++++-----------------------------
+ 1 file changed, 6 insertions(+), 29 deletions(-)
+ tests:  10|2
+total_score: 50/70
+aec59b6
